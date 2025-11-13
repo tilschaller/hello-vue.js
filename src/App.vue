@@ -1,11 +1,30 @@
-<script setup></script>
+<script setup>
+import {ref} from 'vue'
+
+const message = ref("Hello, World!")
+
+function reverseMessage() {
+  message.value = message.value.split('').reverse().join('')
+}
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <h1>{{ message }}</h1>
+
+  <button @click="reverseMessage">Reverse Message</button>
+  <button @click="message += '!'">Append !</button>
+  <button @click="message = 'Hello, World!'">Reset</button>
+
+  <a href="https://baxter.com" target = "_blank">Baxter</a>
 </template>
 
-<style scoped></style>
+<style>
+body {
+  background-color: coral;
+}
+
+button, a {
+  display: block;
+  margin-bottom: 1em;
+}
+</style>
